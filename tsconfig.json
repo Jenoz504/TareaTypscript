@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "umd",
+    "outDir": "./dist",
+    "strict": true
+    },
+    "include": [
+        "./index.ts",
+        "./planeta.ts"
+    ]
+}
