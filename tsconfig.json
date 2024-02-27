@@ -6,7 +6,6 @@
     "strict": true
     },
     "include": [
-        "./index.ts",
-        "./planeta.ts"
+        "./index.ts"
     ]
 }
