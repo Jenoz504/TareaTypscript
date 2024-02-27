@@ -1,39 +1,35 @@
-import {Planeta} from "./planeta"
+// import { Planeta } from "./planeta";
 
-interface HTMLInputElement {    
-}
+// const listaPlanetas: Planeta[] = [
+//     new Planeta('Marte', 3.71),
+//     new Planeta('Jupiter', 24.79),
+//     new Planeta('Luna', 1.63)
+// ];
 
-interface HTMLButtonElement {
-    addEventListener(event: string, callback: EventListenerOrEventListenerObject): void;
-}
+let btnCalcularPeso = document.getElementById('btnCalcularPeso');
+if (btnCalcularPeso) {
+    btnCalcularPeso.addEventListener('click', () => {
+        let nombreInput = document.getElementById('txtNombre') as HTMLInputElement;
+        let pesoInput = document.getElementById('txtPeso') as HTMLInputElement;
 
-const listaPlanetas: Planeta[] = [
-    new Planeta('Marte', 3.71 ),
-    new Planeta('Jupiter', 24.79),
-    new Planeta('Luna', 1.63)
-]
+        if (nombreInput && pesoInput) {
+            let nombre = nombreInput.value;
+            let peso = parseFloat(pesoInput.value);
 
-let nombre: HTMLInputElement | null = document.getElementById('txtNombre');
-if (nombre !== null) {    
-    console.log(nombre);
-} else {
-    console.error('txtNombre');    
-}
+            if (peso) {
+                console.log(nombre);
+                console.log(peso);
 
-
-let peso: HTMLInputElement | null = document.getElementById('txtPeso');
-if (peso !== null) {    
-    console.log(peso);
-} else {
-    console.error('txtNombre');    
-}
-
-let botonCalcular: HTMLButtonElement | null = document.getElementById('btnCalcularPeso');
-
-if (botonCalcular !== null) {
-    botonCalcular.addEventListener('click', () => {
-        listaPlanetas.forEach(planeta => {
-            console.log(`tu peso en ${planeta.getNombre} es de ${planeta.getGravedad}`);
-        });
+                // listaPlanetas.forEach(planeta => {
+                    let gravedad: number = 3.71;
+                    let pesoEnPlaneta: number = peso * gravedad;
+                    console.log(`${nombre}, tu peso en Marte es de ${pesoEnPlaneta} lbs`);
+                // });
+            } else {
+                console.log('¡Por favor, introduce un peso válido!');
+            }
+        } else {
+            console.log('¡Elementos de entrada no encontrados!');
+        }
     });
 }
